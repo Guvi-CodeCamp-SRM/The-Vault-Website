@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+body{
+    background-color:#ffffff;
+}
+
+.wrapper{
+    display: flex;
+    position: relative;   
+}
+
+.wrapper .sidebar{
+    position: fixed;
+    width: 270px;  
+    height: 100%;
+    background-color:rgba(4,4,49,0.966);
+    padding: 40px 0;
+
+
+}
+
+.wrapper .sidebar ul li{
+    padding: 15px;
+
+
+}
+
+.wrapper .sidebar ul li a{
+    color:#cad1f0;	
+    display: block;
+}
+
+.wrapper .sidebar ul li a span{
+    margin-left: 15px;
+}
+
+.wrapper .sidebar ul li a .fas{
+    width: 25px;
+    margin-left: 30px;
+}
+
+.wrapper .sidebar ul li:hover{
+    background: #bac0e2;
+}
+
+.wrapper .sidebar ul li:hover a{
+    color:#000000;
+}
+.wrapper .sidebar img{
+    margin-left: 5%;
+    margin-bottom: 10%;
+}
+
+ .wrapper .upgrade p{
+     color: #cad1f0;
+     text-align: center;
+     margin-top: 25%;
+     margin-right: 15%;
+     margin-bottom: 2%;
+ }
+
+ .wrapper .upgrade button {
+     padding: 4%;
+     background-color: #00ccff;
+     color: #fff;
+     margin-top: 8%;
+     margin-left: 25%;
+     margin-bottom: 5%;
+     border-radius: 8px;
+ }
+
+ .wrapper .upgrade img{
+     margin-left: 25%;
+     margin-top: 5%;
+     margin-bottom: 5%;
+ }
+
+ progress{
+     margin-left: 13%;
+     margin-top: 1%;
+     
+ }
+
+
+.navbar{
+    font-family: 'Montserrat', sans-serif;
+    min-height: 15%;
+    display: flex;
+    margin-left: 20%;
+    margin-top: 1.2%;
+}
+
+.searchbar{
+    background: rgb(219, 221, 218);
+    height: 15%;
+    width:85% ;
+    padding: 16px;
+    border-radius:6px;
+    display: flex;
+
+}
+.searchbar .input_search{
+    background: rgb(219, 221, 218);
+    width: 100%;
+    border: rgb(219, 221, 218);
+    font-size: 105%;
+    outline: none;    
+}
+
+.searchbar .searchbtn{
+    padding-right: 1%;  
+    color: rgb(100, 102, 98); 
+    cursor: pointer;
+}
+
+.tiles h2{
+    margin-left: 21%;
+    margin-top: 15px;
+}

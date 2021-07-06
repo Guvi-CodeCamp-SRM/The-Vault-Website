@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Staatliches&family=Suez+One&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+  }
+
+  body{
+    background-size: 100%;
+    background-color: rgba(4,4,49,0.966);
+  }
+
+  .container{
+    width: 100%;
+    height: 100vh;
+    font-family: sans-serif;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+  }
+
+  .card{
+    box-shadow: 20px 20px 50px rgba(0, 0, 0, 0.5);
+    border: 2px solid black;
+    background-color: #fff;
+    position: absolute;
+    top: 10%;
+    right: 36.5%;
+    height: 70%;
+    width: 425px;
+    border-radius: 29px;
+    transform-style: preserve-3d;
+    transition: transform 1s;
+  }
+
+  .inner-box{
+    position: relative;
+    width: 100%;
+    height: 100%;  
+    color:black;
+  }
+
+  .front {
+    position: absolute;
+    box-sizing: border-box;
+    backface-visibility: hidden;
+  }
+
+  .back{
+    transform: rotateY(180deg);
+    position: absolute;
+    box-sizing: border-box;
+    backface-visibility: hidden;
+  }
+
+  .container div input{
+    border: none;
+    border-bottom: 3px solid paleturquoise;
+    transition: width .8s ease-in;  
+  }
+
+  .container div input:focus{
+    transition: 1s;
+    border-bottom: 3px solid rgb(12, 166, 212);
+  }
+
+  .box{
+    margin-bottom: 38px;
+  }
+
+  .box input{
+    font-size: 21px;
+    border: none;
+    background: none;
+    outline: none;
+    color: #000;   
+  }
+  
+  .box .fas{
+      color:rgba(4,4,49,0.966) ;
+  }
+  .box1 .fas{
+      color:rgba(4,4,49,0.966);
+  }
+
+  .box i{
+    padding: 0 8px;   
+  }
+
+  .box1 i{
+    padding: 0 8px;   
+  }
+
+  .front form{
+    margin-top: 10px;
+    padding: 30px 23px;
+  }
+
+  #forgot{
+    float: right;
+    color: rgba(4,4,49,0.966);
+    font-weight: bold;
+ }
+  .front .footer a{
+    color: rgba(4,4,49,0.966);
+    font-weight: bold;
+ }
+
+
+ .front .btn{
+    margin-top: 30px;
+    width: 60%;
+    font-size: 22px;
+    padding: 8px;
+    margin-left: 21%;
+    cursor: pointer;
+    background:rgb(12, 166, 212); 
+    border-radius: 20px;
+    color: rgb(0, 0, 0); 
+    transition: ease-out 0.4s;
+    border: 1px solid rgb(12, 166, 212);
+  }
+
+  .back .btn{
+    margin-top: 30px;
+    width: 60%;
+    font-size: 22px;
+    padding: 8px;
+    margin-left: 15%;
+    cursor: pointer;
+    background:rgb(12, 166, 212); 
+    border-radius: 20px;
+    color: rgb(0, 0, 0); 
+    transition: ease-out 0.4s;
+    border: 1px solid rgb(12, 166, 212);
+  }
+
+ .btn:hover {
+    /* box-shadow: inset 400px 0 0 0 green; */
+    background: rgba(4,4,49,0.966);
+    border: 1px solid rgba(4,4,49,0.966);
+    color: #fff;
+  }
+
+  .container h1{
+    font-size: 40px;
+    text-align: center;
+    margin: 39px;
+    font-family: 'Merriweather Sans', sans-serif;    
+  }
+
+ .footer{
+    margin-top: 25px;
+    text-align: center;
+    font-size: 18px;
+    }
+
+ /*.back{
+     margin-top: 2%;
+     padding: 2%;
+ } */
+
+
+ .box1{
+        margin-bottom: 26px;
+      }
+      
+ .box1 input{
+        font-size: 15px;
+        border: none;
+        background: none;
+        outline: none;
+        color:#000;
+      }
+.back h1{
+    margin-top: 7%;
+}
+
+.back form{
+    margin-left: 5%;
+    padding: 0px 2px; 
+  }
+
+.footer a{
+    color:rgba(4,4,49,0.966);
+    font-weight: bold;
+    margin-right: 10%;
+  }
+
+
+    
