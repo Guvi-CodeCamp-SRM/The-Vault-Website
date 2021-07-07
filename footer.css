@@ -10,15 +10,16 @@ body{
     .row{
         display: flex;
         margin-top: 33px;
+        justify-content: center;
     }
     .col{
-        padding: 10px 65px;
+        padding: 10px 140px;
     }
     .logo img{
         margin: 22px 5px;
     }
     .header{
-        font-size: 22px;
+        font-size: 25px;
         color: #fff;
         display: flex;
         justify-content: center;
@@ -29,11 +30,11 @@ body{
     /* margin: 10px -13px; */
     padding: 3px 23px;
     color: #859ac0;
-    font-size: 17px;
+    font-size: 22px;
     text-align: center;
     }
     #foot li{
-    font-size: 17px;
+    font-size: 22px;
     transition: letter-spacing .3s ease-in-out;
     }
     
@@ -41,16 +42,21 @@ body{
     letter-spacing: 1.5px;
     cursor: pointer;
     }
+    #foot li a{
+        text-decoration: none;
+        color: #859ac0;
+    }
     .copyright p{
         text-align: center;
     padding: 21px 0;
     color: #fff;
+    font-size: 18px;
     }
     .row .col ul li i{
         padding: 10px 25px;
     }
     #flex li{
-        font-size: 30px;
+        font-size: 34px;
     }
     #flex{
         padding: 0px 20px;
