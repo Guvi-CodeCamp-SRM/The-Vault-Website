@@ -2,14 +2,13 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="tilepage.css">
-    <title>Dashboard</title>
+    <link rel="stylesheet" href="accountpage.css">
+    <title>Account Settings</title>
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> -->
      <script src= "https://kit.fontawesome.com/ece23478c9.js"></script>
-     
    </head>
 <body>
   <div class="sidebar">
@@ -89,7 +88,7 @@
     </div>
         <ul class="active" id="filemenu">
              <li id="account"  class="trn-bg divider"><a href="account.html"><i class="fas fa-user-cog"></i><span class="setting">Account Settings</span></a></li>
-            <li id="account" class="trn-bg divider"><i class="fas fa-sign-out-alt"></i><span class="setting" id="logout">  Logout</span></li>
+            <li id="account" class="trn-bg divider"><i class="fas fa-sign-out-alt"></i><span class="setting">  Logout</span></li>
         </ul>
     </div>
 </div>
@@ -103,12 +102,99 @@
         <input type="file" id="add-file" class="add-file">
         <label for="add-file">Add New Files</label>
       </div>
+     
+</div>
+
+
+
+<!-- <hr class="cont"> -->
+
+
+<h2 class="cont1">Account Settings</h2>
+    <hr class="cont">
+
+
+
+<div id="setting">
+    
+<div class="heading">
+<h2>Update Profile</h2>
+</div>
+<div class="content">
+<p>You can change your profile details below:-</p>
+<form action="noaction.php">
+    <label for="FirstName">First Name</label>
+    <div>
+        <input type="text" name="Fname" placeholder="Enter your first name">
+    </div>
+    <br>
+    <label for="LastName">Last Name</label>
+    <div>
+        <input type="text" name="Lname" placeholder="Enter your last name">
+    </div>
+    <br>
+    <label for="E-mail">E-mail Address</label>
+    <div>
+        <input type="email" name="e-mail" placeholder="Enter your Email ID">
+    </div>
+    <br>
+    <button class="btn1">Update</button>
+    <input type="reset" class="btn3">
+</form>
+</div>
+<br>
+<div class="heading">
+<h2>Change Account Password</h2>
+</div>
+<div class="content">
+<p>Using the same password for a very long time? You can change it below:-</p>
+<form action="noaction.php">
+    <label for="oldpass">Old Password</label>
+    <div>
+        <input type="password" name="oldpass" id="" placeholder="Enter your old password">
+    </div>
+    <br>
+    <label for="newpass">New Password</label>
+    <div>
+        <input type="password" name="newpassword" placeholder="Enter your new password">
+    </div>
+    <br>
+    <label for="repass">Re-Type your Password</label>
+    <div>
+        <input type="password" name="retype" placeholder="Re-type your new password">
+    </div>
+    <br>
+    <button class="btn2">Save Changes</button>
+    <!-- <button class="btn2" type="reset">Cancel</button> -->
+    <input type="reset" class="btn3">
 
 </div>
-<hr class="cont">
+</form>
+<br>
+<div class="heading">
+<h2>Delete Your Account</h2>
+</div>
+<div class="content">
+<p> Do you really wish to delete your account? Your account as well as your saved documents uploaded through
+    your account will be deleted.</p>
+<p>You can continue by clicking the button below-</p>
+<br>
+
+<button class="btn4">Delete Account</button>
+</div>
+
 
 
 </div>
+
+
+</div>
+
+
+
+
+
+
 
 
 
@@ -121,10 +207,6 @@ $(document).ready(function(){
       $('ul').toggleClass('active');
   })
 })
-
-
-
-
 
 
 //   sidebar opening n closing
@@ -144,7 +226,7 @@ $(document).ready(function(){
      sidebar.classList.toggle("active");
    }
 
-   
+
 
 
 
