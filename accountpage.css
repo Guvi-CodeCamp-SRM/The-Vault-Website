@@ -314,6 +314,104 @@ padding: 0 8px;
  margin-left: -12px;
 }
 
+.cont1{
+    padding-left: 35px;
+}
+
+
+.content input[type="text"] {
+ margin-top: 1%;
+ width: 180px;
+ height: 33px;
+}
+.content input[type="password"] {
+ margin-top: 1%;
+ width: 205px;
+ height: 33px;
+}
+.content input[type="email"] {
+ margin-top: 1%;
+ width: 180px;
+ height: 33px;
+}
+
+.btn1 {
+ background-color: #0070e0;
+ border: 2px solid #0070e0;
+ border-radius: 5px;
+ width: 90px;
+ height: 30px;
+ color: white;
+ cursor: pointer;
+}
+.btn1:hover{
+ background-color: transparent;
+ color: #0070e0;
+}
+
+.btn2 {
+ background-color: #238636;
+ border: 2px solid #238636;
+ border-radius: 5px;
+ width: 104px;
+ height: 30px;
+ color: white;
+ cursor: pointer;
+}
+.btn2:hover{
+background-color: transparent;
+color: #04791c;
+}
+.btn3 {
+ background-color: grey;
+ border: 2px solid grey;
+ border-radius: 5px;
+ width: 70px;
+ height: 30px;
+ color: white;
+ margin-left: 5px;
+ cursor: pointer;
+}
+
+.btn3:hover{
+background-color: transparent;
+color: gray;
+}
+.btn4 {
+ background-color: #f85149;
+ border: 2px solid #f85149;
+ border-radius: 5px;
+ width: 106px;
+ height: 30px;
+ color: white;
+ cursor: pointer;
+}
+
+.btn4:hover{
+ /* background-color: red;
+ border: 2px solid red; */
+ color: red;
+ background-color: transparent;
+}
+
+
+
+#setting{
+ padding-left: 35px;
+ /* height: 160vh; */
+ height: 170vh;
+ /* background-color: rgb(219, 221, 218); */
+ background-color: rgb(239, 239, 239);
+}
+.heading{
+ position: relative;
+ top: 25px;
+}
+.content{
+ margin-top: 46px;
+ margin-bottom: 42px;
+}
+
 /* Scroll bar */
 /* width */
 ::-webkit-scrollbar {
@@ -347,7 +445,7 @@ padding: 0 8px;
     width: 110px;
   }
   .sidebar #btn{
-    left: 49%;
+    left: 60%;
     font-size: 50px;
   }
   .sidebar ul{
@@ -359,7 +457,7 @@ padding: 0 8px;
   }
   .sidebar ul li i{
     font-size: 40px;
-    margin-left: 13px;
+    margin-left: 26px;
   }
   .sidebar .links_name{
     font-size: 19px;
@@ -380,13 +478,13 @@ padding: 0 8px;
   width: 227px;
  }
  .filedropdown{
-   margin-right: -360px;
+   margin-right: -373px;
  } 
  .tiles{
    margin: 34px 62px;
  }
  .file-input{
-   margin: -70px -348px;
+   margin: -70px -362px;
  }
  .cont{
    margin-left: 39px;
@@ -395,5 +493,15 @@ padding: 0 8px;
  .sidebar.active ~ .main-content {
   margin-left: 190px;
 }
-  
+#setting {
+  padding-left: 74px;
+  height: 235vh;
+  width: 250vw;
  }
+ .cont1 {
+  padding-left: 53px;
+}
+.content{
+  width: 419px;
+}
+}
