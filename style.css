@@ -349,14 +349,14 @@ border-radius: 10px;
         pointer-events: none;
         user-select: none;
     }
-    .card {
-        /* height: 230%;
-        width: 203%; */
+    /* .card {
         height: 1304px;
-    width: 763px;
-        margin-left: 74%;
-        /* margin-top: -1117%; */
-        margin-top: -4100px;
+    width: 763px; */
+        /* margin-left: 74%;
+        margin-top: -4100px; */
+
+        /* left: 237px;
+    top: 274px;
     }
     .front, .back{
             font-size: 45px;
@@ -411,7 +411,7 @@ border-radius: 10px;
     .card p#para {
         margin-left: -30px;
         margin-top: 15px;
-    }
+    } */
 
     .navbar ul{
         display: none;
@@ -499,11 +499,4 @@ border-radius: 10px;
         display: none;
     }
   }
-  /* @media (max-width:991px){ */
-    
-    
-
-
-
-
-
+  

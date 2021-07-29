@@ -7,15 +7,15 @@
  } */
  .card{
     border: 2px solid white;
-    height: 557px;
+    height: 625px;
     width: 384px;
 border-radius: 25px;
 background-color: white;
-/* background-color: #0b0b4c; */
-margin-left: 35%;
-/* margin-top: 6%; */
-margin-top: -147%;
+/* margin-left: 35%; */
+/* margin-top: -147%; */
 position: absolute;
+left: 500px;
+top: 60px;
 display: none;
 
 
@@ -72,6 +72,8 @@ transform-style: preserve-3d;
     height: 35px;
 width: 260px;
 font-family: 'Roboto', sans-serif;
+font-size: 15px;
+    padding: 0 5px;
 }
 .card label{
     color: #03034d;
@@ -80,7 +82,7 @@ font-family: 'Roboto', sans-serif;
 }
 .btn
 {
-    margin-top: 30px;
+    margin-top: 20px;
 background: #20dddd;
 border: #20dddd;
 border-radius: 25px;
@@ -123,14 +125,14 @@ cursor: pointer;
     font-size: 35px;
     text-align: center;
     font-family: 'Roboto', sans-serif;
-    margin-top: 16%;
+    margin-top: 20%;
     margin-left: 37%;
 }
 .heading1 h1{
     font-size: 35px;
     text-align: center;
     font-family: 'Roboto', sans-serif;
-    margin-top: 8%;
+    margin-top: 3%;
     margin-left: 9%;
     
 }
@@ -146,7 +148,7 @@ cursor: pointer;
 }
 form#reg{
     margin-left: 13%;
-    margin-top: 11%;
+    margin-top: 8%;
 }
 form{
     margin-left: 20%;
@@ -165,4 +167,96 @@ form #reg{
 /* float: right;
 margin-right: 15px; */
 margin-left: -70px;
+}
+#valid{
+    margin: 0px;
+    font-size: 12px;
+    margin-top: 5px;
+  }  
+
+  #warningmsg{
+    margin-top: -16px;
+  }
+  #togglePassword1{
+    float: right;
+    margin: -28px -80px;
+  }
+  .alert-primary {
+    font-family: 'Roboto', sans-serif;
+    margin-top: -15px;
+    color: red;
+    text-transform: capitalize;
+}
+
+@media screen and (max-width: 991px){
+.card {
+    height: 1420px;
+width: 763px;
+    /* margin-left: 74%;
+    margin-top: -4100px; */
+
+    left: 237px;
+top: 274px;
+}
+.front, .back{
+        font-size: 45px;
+}
+.closed {
+    font-size: 111px;
+    margin: 0 -191px;
+}
+.heading h1 {
+    font-size: 75px;
+    margin-top: 20%;
+    margin-left: 53%;
+}
+.card input {
+    height: 59px;
+    width: 490px;
+    font-size: 40px;
+}
+::placeholder{
+    font-size: 36px;
+}
+.card p.forgot {
+    font-size: 38px;
+    margin-top: 111px;
+}
+.btn2 {
+    margin-top: 92px;
+    border-radius: 50px;
+    height: 96px;
+    width: 370px;
+    font-size: 48px;
+}
+.card p {
+    margin-left: 45px;
+    font-size: 40px;
+}
+.close{
+    font-size: 111px;
+    margin: 0 56px;
+}
+.heading1 h1 {
+    font-size: 75px;
+    margin-top: 4%;
+    margin-left: 15%;
+}
+.btn {
+    margin-top: 50px;
+    border-radius: 50px;
+    height: 96px;
+    width: 370px;
+    font-size: 48px;
+}
+.card p#para {
+    margin-left: -30px;
+    margin-top: 15px;
+}
+.card #valid{
+    font-size: 25px;
+}
+#togglePassword1{
+margin: -58px -164px;
+}
 }
