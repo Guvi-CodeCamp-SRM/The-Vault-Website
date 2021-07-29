@@ -9,6 +9,9 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> -->
      <script src= "https://kit.fontawesome.com/ece23478c9.js"></script>
+     <link rel="icon" href="images/Vector.png" type="image/svg+xml">
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
    </head>
 <body>
   <div class="sidebar">
@@ -88,7 +91,7 @@
     </div>
         <ul class="active" id="filemenu">
              <li id="account"  class="trn-bg divider"><a href="accountpage.html"><i class="fas fa-user-cog"></i><span class="setting">Account Settings</span></a></li>
-            <li id="account" class="trn-bg divider"><i class="fas fa-sign-out-alt"></i><span class="setting">  Logout</span></li>
+            <li id="account" class="trn-bg divider"><i class="fas fa-sign-out-alt"></i><span class="setting" id="logout" onclick="openpopup1()">  Logout</span></li>
         </ul>
     </div>
 </div>
@@ -122,23 +125,23 @@
 </div>
 <div class="content">
 <p>You can change your profile details below:-</p>
-<form action="noaction.php">
+<form action="/profile/update?_method=PUT" id="profile_update" >
     <label for="FirstName">First Name</label>
     <div>
-        <input type="text" name="Fname" placeholder="Enter your first name">
+        <input type="text" name="Fname" id="Fname" placeholder="Enter your first name">
     </div>
     <br>
     <label for="LastName">Last Name</label>
     <div>
-        <input type="text" name="Lname" placeholder="Enter your last name">
+        <input type="text" name="Lname" id="Lname" placeholder="Enter your last name">
     </div>
     <br>
     <label for="E-mail">E-mail Address</label>
     <div>
-        <input type="email" name="e-mail" placeholder="Enter your Email ID">
+        <input type="email" name="e-mail" id="profemail" placeholder="Enter your Email ID">
     </div>
     <br>
-    <button class="btn1">Update</button>
+    <button type="submit" class="btn1">Update</button>
     <input type="reset" class="btn3">
 </form>
 </div>
@@ -148,23 +151,23 @@
 </div>
 <div class="content">
 <p>Using the same password for a very long time? You can change it below:-</p>
-<form action="noaction.php">
+<form action="/edit?_method=PUT" method="POST" id="changepass">
     <label for="oldpass">Old Password</label>
     <div>
-        <input type="password" name="oldpass" id="" placeholder="Enter your old password">
+        <input type="password" name="oldpass" id="oldpass" placeholder="Enter your old password">
     </div>
     <br>
     <label for="newpass">New Password</label>
     <div>
-        <input type="password" name="newpassword" placeholder="Enter your new password">
+        <input type="password" name="newpassword" id="newpass" placeholder="Enter your new password">
     </div>
     <br>
     <label for="repass">Re-Type your Password</label>
     <div>
-        <input type="password" name="retype" placeholder="Re-type your new password">
+        <input type="password" name="retype" id="retypepass" placeholder="Re-type your new password">
     </div>
     <br>
-    <button class="btn2">Save Changes</button>
+    <button type="submit" class="btn2">Save Changes</button>
     <!-- <button class="btn2" type="reset">Cancel</button> -->
     <input type="reset" class="btn3">
 
@@ -180,15 +183,54 @@
 <p>You can continue by clicking the button below-</p>
 <br>
 
-<button class="btn4">Delete Account</button>
+<button class="btn4" id="delaccount" onclick="openpopup()">Delete Account</button>
 </div>
 
 
 
 </div>
 
+<!--delete popup -->
+<div class="bg-modal">
+    <div class="modal-content">
+        <h1>Delete account</h1>
+        <!-- <button class="closed" id="popupbtn" onclick="closepopup()">&times;</button> -->
+        <hr>
+        <h5>Enter your password to delete the account permanently</h5>
+            <!-- <button class="closed" id="popupbtn" onclick="closepopup()">&times;</button> -->
+        <form action="/delete?_method=DELETE" method="POST" id="delete_account">
+            <input type="password" id="delpass" placeholder="Enter your password">
+       
+        <div class="popupbtn">
+            <button type="submit" class="popup-del" id="delacc">Delete</button>
+            <button class="popup-cancel" id="popupbtn" onclick="closepopup()">Cancel</button>
+        </div>
+      </form>
 
+    </div>
 </div>
+<!-- popup ends -->
+
+<!-- logout popup -->
+<div class="bg-modal1">
+    <div class="modal-content1">
+        <h1>Logout</h1>
+        <!-- <button class="closed" id="popupbtn1" onclick="closepopup1()">&times;</button> -->
+        <hr>
+        <h5>Are you sure you want to logout?</h5>
+            <!-- <button class="closed" id="popupbtn" onclick="closepopup()">&times;</button> -->
+       <form action="/logout?_method=DELETE" method="POST" id="logout_account">
+            <div class="popupbtn">
+            <button type="submit" class="popup-del" id="log_acc">Logout</button>
+            <button class="popup-cancel" id="popupbtn1" onclick="closepopup1()">Cancel</button>
+          </div>
+        </form>
+    </div>
+</div>
+<!-- popup ends -->
+</div>
+
+
 
 
 
@@ -212,7 +254,7 @@ $(document).ready(function(){
 //   sidebar opening n closing
    let btn = document.querySelector("#btn");
    let sidebar = document.querySelector(".sidebar");
-   let searchBtn = document.querySelector(".bx-search");
+  //  let searchBtn = document.querySelector(".bx-search");
 
    btn.onclick = function() {
      sidebar.classList.toggle("active");
@@ -222,16 +264,190 @@ $(document).ready(function(){
        btn.classList.replace("bx-menu-alt-right", "bx-menu");
      }
    }
-   searchBtn.onclick = function() {
-     sidebar.classList.toggle("active");
-   }
+  //  searchBtn.onclick = function() {
+  //    sidebar.classList.toggle("active");
+  //  }
 
 
 
+// popup
+// document.getElementById('delaccount').addEventListener('click', function(){
+    // document.querySelector('.bg-modal').style.display='flex';
+// })
+
+// delete
+var open= document.getElementById('delaccount');
+var close= document.getElementById('popupbtn');
+function openpopup(){
+    document.querySelector('.bg-modal').style.display="flex";
+    document.querySelector("body").style.overflow="hidden";
+    };
+    open.onclick=openpopup;
+
+    function closepopup(){
+    document.querySelector('.bg-modal').style.display="none";
+    document.querySelector("body").style.overflow="visible";
+    };
+    close.onclick=closepopup;
+
+    // logout
+    var open= document.getElementById('logout');
+var close= document.getElementById('popupbtn1');
+function openpopup1(){
+    document.querySelector('.bg-modal1').style.display="flex";
+    document.querySelector("body").style.overflow="hidden";
+    };
+    open.onclick=openpopup1;
+
+    function closepopup1(){
+    document.querySelector('.bg-modal1').style.display="none";
+    document.querySelector("body").style.overflow="visible";
+    };
+    close.onclick=closepopup1;
 
 
 
+   
   </script>
 
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+  
+
+
+// Update Profile
+var profile_update = document.getElementById("profile_update");
+profile_update.addEventListener("submit",function(e){
+			e.preventDefault();
+			var Fname = document.getElementById("Fname").value;
+			var Lname = document.getElementById("Lname").value;
+      var profemail = document.getElementById("profemail").value;
+			var data = {
+							"name": Fname,
+							"name": Lname,
+              "email": profemail
+						};
+			fetch('https://gccstorage.herokuapp.com/profile/update?_method=PUT', {
+			  method: 'POST',
+			  headers: {
+				'Content-Type': 'application/json',
+			  },
+			  body: JSON.stringify(data),
+			})
+			.then(response => response.json())
+			.then(data => {
+			//   document.getElementById("warningmsg").innerHTML = data.message;
+			//   $("#warningmsg").show();
+			  console.log('Success:', data);	
+			})
+			.catch((error) => {
+			  console.error('Error:', error);
+			});
+		});
+
+
+// Change Password
+var changepass = document.getElementById("changepass");
+		changepass.addEventListener("submit",function(e){
+			e.preventDefault();
+			var oldpass = document.getElementById("oldpass").value;
+			var newpass = document.getElementById("newpass").value;
+      var retypepass = document.getElementById("retypepass").value;
+			var data = {
+							"old_password": oldpass,
+							"new_password": newpass,
+              "cnew_password": retypepass
+						};
+			fetch('https://gccstorage.herokuapp.com/edit?_method=PUT', {
+			  method: 'POST',
+			  headers: {
+				'Content-Type': 'application/json',
+			  },
+			  body: JSON.stringify(data),
+			})
+			.then(response => response.json())
+			.then(data => {
+			//   document.getElementById("warningmsg").innerHTML = data.message;
+			//   $("#warningmsg").show();
+			  console.log('Success:', data);	
+			})
+			.catch((error) => {
+			  console.error('Error:', error);
+			});
+		});
+
+// Delete profile
+var delete_account = document.getElementById("delete_account");
+delete_account.addEventListener("submit",function(e){
+			e.preventDefault();
+      var delpass = document.getElementById("delpass").value;
+			var data = {
+              "password": delpass
+						};
+			fetch('https://gccstorage.herokuapp.com/delete?_method=DELETE', {
+			  method: 'POST',
+			  headers: {
+				'Content-Type': 'application/json',
+			  },
+			  body: JSON.stringify(data),
+			})
+			.then(response => response.json())
+			.then(data => {
+			//   document.getElementById("warningmsg").innerHTML = data.message;
+			//   $("#warningmsg").show();
+			  console.log('Success:', data);
+        if(data.status == "ok"){
+          console.log(data.message);
+          window.location.href = "demo form.html";
+        }	
+        else {
+          console.log(data.message);
+        }
+       
+         
+			})
+			.catch((error) => {
+			  console.error('Error:', error);
+       
+			});
+		});
+
+// Logout
+var logout_account = document.getElementById("logout_account");
+logout_account.addEventListener("submit",function(e){
+			e.preventDefault();
+      var log_acc = document.getElementById("log_acc").value;			
+			fetch('https://gccstorage.herokuapp.com/logout?_method=DELETE', {
+			  method: 'POST',
+			  headers: {
+				'Content-Type': 'application/json',
+			  },
+        
+        body: JSON.stringify({}),
+			})
+			.then(response => response.json())
+			.then(data => {
+		// 	//   document.getElementById("warningmsg").innerHTML = data.message;
+		// 	//   $("#warningmsg").show();
+			  console.log('Success:', data);	
+        if(status == "ok"){
+          // console.log(message);
+          window.location.href="demo form.html";
+        }
+      // else  if(data.status == "error"){
+      //     console.log(data.message);
+      //   }
+			})
+			.catch((error) => {
+			  console.error('Error:', error);
+			});
+});
+		
+    
+    
+  
+
+
+</script>
 </html>

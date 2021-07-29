@@ -9,7 +9,8 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> -->
      <script src= "https://kit.fontawesome.com/ece23478c9.js"></script>
-     
+     <link rel="icon" href="images/Vector.png" type="image/svg+xml">
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">     
    </head>
 <body>
   <div class="sidebar">
@@ -89,7 +90,7 @@
     </div>
         <ul class="active" id="filemenu">
              <li id="account"  class="trn-bg divider"><a href="accountpage.html"><i class="fas fa-user-cog"></i><span class="setting">Account Settings</span></a></li>
-            <li id="account" class="trn-bg divider"><i class="fas fa-sign-out-alt"></i><span class="setting" id="logout">  Logout</span></li>
+            <li id="account" class="trn-bg divider"><i class="fas fa-sign-out-alt"></i><span class="setting" id="logout" onclick="openpopup1()">  Logout</span></li>
         </ul>
     </div>
 </div>
@@ -98,17 +99,35 @@
     <!-- <div class="tiles"> -->
         <h2 class="tiles">My Drive</h2>
     
-
+     <form action="/files/upload" method="POST" id="filesupload">   
     <div class="file-input">
         <input type="file" id="add-file" class="add-file">
-        <label for="add-file">Add New Files</label>
+        <label for="add-file" id="addfilebtn" >Add New Files</label>
       </div>
-
+      <!-- <div id="preview"></div> -->
+    </form>
 </div>
 <hr class="cont">
-
-
+<div id="preview"></div>
+<!-- logout popup -->
+<div class="bg-modal1">
+  <div class="modal-content1">
+      <h1>Logout</h1>
+      <!-- <button class="closed" id="popupbtn1" onclick="closepopup1()">&times;</button> -->
+      <hr>
+      <h5>Are you sure you want to logout?</h5>
+          <!-- <button class="closed" id="popupbtn" onclick="closepopup()">&times;</button> -->
+          <form action="/logout?_method=DELETE" method="POST" id="logout_account">
+            <div class="popupbtn">
+            <button type="submit" class="popup-del" id="log_acc">Logout</button>
+            <button class="popup-cancel" id="popupbtn1" onclick="closepopup1()">Cancel</button>
+          </div>
+        </form>
+  </div>
 </div>
+<!-- popup ends -->
+</div>
+
 
 
 
@@ -123,14 +142,10 @@ $(document).ready(function(){
 })
 
 
-
-
-
-
 //   sidebar opening n closing
    let btn = document.querySelector("#btn");
    let sidebar = document.querySelector(".sidebar");
-   let searchBtn = document.querySelector(".bx-search");
+  //  let searchBtn = document.querySelector(".bx-search");
 
    btn.onclick = function() {
      sidebar.classList.toggle("active");
@@ -140,16 +155,47 @@ $(document).ready(function(){
        btn.classList.replace("bx-menu-alt-right", "bx-menu");
      }
    }
-   searchBtn.onclick = function() {
-     sidebar.classList.toggle("active");
-   }
+  
 
-   
+  // logout
+  var open= document.getElementById('logout');
+var close= document.getElementById('popupbtn1');
+function openpopup1(){
+    document.querySelector('.bg-modal1').style.display="flex";
+    document.querySelector("body").style.overflow="hidden";
+    };
+    open.onclick=openpopup1;
 
-
-
-
+    function closepopup1(){
+    document.querySelector('.bg-modal1').style.display="none";
+    document.querySelector("body").style.overflow="visible";
+    };
+    close.onclick=closepopup1;
   </script>
-
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+ 
+// Logout
+var logout_account = document.getElementById("logout_account");
+logout_account.addEventListener("submit",function(e){
+			e.preventDefault();
+			fetch('https://gccstorage.herokuapp.com/logout?_method=DELETE', {
+			  method: 'POST',
+			  headers: {
+				'Content-Type': 'application/json',
+			  },
+        body: JSON.stringify(data),
+			})
+			.then(response => response.json())
+			.then(data => {
+			//   document.getElementById("warningmsg").innerHTML = data.message;
+			//   $("#warningmsg").show();
+			  console.log('Success:', data);	
+			})
+			.catch((error) => {
+			  console.error('Error:', error);
+			});
+		});
+</script>
 </html>

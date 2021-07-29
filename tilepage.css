@@ -338,11 +338,97 @@ padding: 0 8px;
   background: rgba(22, 113, 155, 0.966);
  /* background: rgb(61, 211, 211); */
  }
- 
+ .bg-modal1{
+  width: 100%;
+  height: 100%;
+  /* height: 300%; */
+  /* background-color: black; */
+  background-color: white;
+  opacity: 0.87;
+  position: absolute;
+  top: 0;
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.modal-content1{
+  width: 535px;
+  height: 275px;
+  background-color: white;
+  box-shadow: 1px 4px 15px 0px grey;
+  border-radius: 4px;
+}
+.modal-content1 h1{
+  margin-top: 15px;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+.modal-content1 h5{
+  font-family: 'Montserrat', sans-serif;
+      font-size: 20px;
+      margin-top: 30px;
+      margin-bottom: 4%;
+      text-align: center;
+}
+.modal-content1 ::placeholder{
+  color: black;
+}
+.modal-content1 input {
+    height: 50px;
+    width: 380px;
+    background-color: rgb(160, 154, 154);
+    outline: none;
+    border: none;
+    font-size: 15px;
+    padding-left: 10px;
+  }
+  .modal-content1 form{
+      text-align: center;
+  }
+  .modal-content .popupbtn, .modal-content1 .popupbtn{
+    margin-top: 70px;
+    text-align: center;
+}
+
+.modal-content1 .popup-del{
+    width: 125px;
+    height: 50px;
+    background-color: #282858;
+    color: white;
+    border: 2px solid #282858;
+    font-size: 18px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.modal-content1 .popup-cancel {
+  width: 125px;
+  height: 50px;
+  background-color: rgb(160, 154, 154);
+  color: black;
+  border: 2px rgb(160, 154, 154);
+  font-size: 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bolder;
+  margin-left: 40px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+/* .modal-content1 .closed{
+  float: right;
+  margin-top: -73px;
+  font-size: 48px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+} */
 
 
 
- @media screen and (max-width: 991px){
+ /* @media screen and (max-width: 991px){
   .sidebar{
     width: 110px;
   }
@@ -395,5 +481,78 @@ padding: 0 8px;
  .sidebar.active ~ .main-content {
   margin-left: 190px;
 }
+.bg-modal1 {
+  width: 275%;
+  height: 295%;
+}
   
- }
+ } */
+
+
+ @media(max-width:991px){
+  body{
+    /* overflow: visible; */
+    width: 200vw;
+  }
+  .searchbar{
+    width: 350px;
+    height: 50px;
+    margin-top: 22px;
+    margin-left: 30px;
+  }
+  .searchbar .input_search {
+    /* outline: none;
+    border: 0px; */
+    font-size: 20px;
+    margin: 10px;
+    background: rgb(219, 221, 218);
+}
+#filebtn {
+  cursor: pointer;
+  font-size: 17px;
+  border-radius: 12px;
+  border: 0px;
+  padding: 5px 37px 12px;
+  margin-right: -17px;
+    float: right;
+}
+.file-input label{
+  margin-left: 20%
+}
+#setting{
+  height: 210vh;
+}
+.filebtn{
+  display: flex;
+  margin-left: 30px;
+}
+.bg-modal1 {
+  width: 180%;
+    height: 158%;
+}
+}
+@media(min-width:992px) and (max-width:1024px){
+  #setting{
+height: 120vh;
+}
+}
+@media only screen and (max-width: 991px) and (orientation:landscape) {
+  /* For landscape layouts only */
+    #setting{
+      height: 350vh;
+    }
+}
+@media only screen and (min-width: 992px) and (max-width: 1024px) and (orientation:landscape) {
+  /* For landscape layouts only */
+  #setting{
+    height: 170vh;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 376px){
+  .searchbar .input_search {
+    width: 128px;
+  }
+  .searchbar {
+    width: 186px;
+  }
+  }
