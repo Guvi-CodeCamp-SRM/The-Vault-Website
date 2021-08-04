@@ -23,7 +23,7 @@
     <ul class="nav_list">
      
       <li>
-        <a href="#">
+        <a href="tilepage.html">
           <i class='bx bx-home' ></i>
           <span class="links_name">My Files</span>
         </a>
@@ -60,7 +60,7 @@
      
      
       <li>
-        <a href="#">
+        <a href="accountpage.html">
           <i class='bx bx-cog' ></i>
           <span class="links_name">Settings</span>
         </a>
@@ -114,10 +114,10 @@
   <div class="modal-content1">
       <h1>Logout</h1>
       <!-- <button class="closed" id="popupbtn1" onclick="closepopup1()">&times;</button> -->
-      <hr>
+      <hr style="margin-top: 13px;">
       <h5>Are you sure you want to logout?</h5>
           <!-- <button class="closed" id="popupbtn" onclick="closepopup()">&times;</button> -->
-          <form action="/logout?_method=DELETE" method="POST" id="logout_account">
+          <form method="DELETE" id="logout_account">
             <div class="popupbtn">
             <button type="submit" class="popup-del" id="log_acc">Logout</button>
             <button class="popup-cancel" id="popupbtn1" onclick="closepopup1()">Cancel</button>
@@ -180,22 +180,74 @@ function openpopup1(){
 var logout_account = document.getElementById("logout_account");
 logout_account.addEventListener("submit",function(e){
 			e.preventDefault();
-			fetch('https://gccstorage.herokuapp.com/logout?_method=DELETE', {
-			  method: 'POST',
+			fetch('https://gccstorage.herokuapp.com/logout', {
+			  method: 'DELETE',
 			  headers: {
 				'Content-Type': 'application/json',
 			  },
-        body: JSON.stringify(data),
+        body: JSON.stringify({}),
+        credentials: "include"
 			})
 			.then(response => response.json())
 			.then(data => {
 			//   document.getElementById("warningmsg").innerHTML = data.message;
 			//   $("#warningmsg").show();
 			  console.log('Success:', data);	
+        if (data.status == "ok") {
+          window.location.href = "/index.html";
+        }
 			})
 			.catch((error) => {
 			  console.error('Error:', error);
 			});
 		});
+
+    // Adding images
+  function getImagePreview(event){
+      let file = event.target.files[0];
+      console.log(file.type);
+
+      var image=URL.createObjectURL(file);
+      var imagediv= document.getElementById('preview');
+      var newimg= document.createElement('img');
+
+      if (file.type =="application/pdf") {
+        newimg.src="https://play-lh.googleusercontent.com/nufRXPpDI9XP8mPdAvOoJULuBIH_OK4YbZZVu8i_-eDPulZpgb-Xp-EmI8Z53AlXHpqX";
+        newimg.style.border ="1px solid black";
+        newimg.style.padding = "10px";
+        newimg.style.margin = "10px";
+      } else {
+        newimg.src=image;
+      }
+      
+    //   imagediv.innerHTML= '';
+     
+      newimg.width="300";
+      newimg.style.border ="1px solid black";
+      newimg.style.padding = "10px";
+      newimg.style.margin = "10px";
+      imagediv.appendChild(newimg);
+
+      let formData = new FormData();
+      formData.append("file", file, file.name);
+
+      fetch('https://gccstorage.herokuapp.com/files/upload', {
+			  method: 'POST',
+			  headers: {
+				'Content-Type': 'application/x-www-form-urlencoded',
+			  },
+			  body: formData,
+        credentials: "include"      
+			})
+			.then(response => response.json())
+			.then(data => {
+        console.log(data)
+			})
+			.catch((error) => {
+			  console.error('Error:', error);
+			});
+  }
+
+  document.getElementById("add-file").addEventListener("change", getImagePreview);
 </script>
 </html>

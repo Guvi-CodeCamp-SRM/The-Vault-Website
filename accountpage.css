@@ -35,8 +35,6 @@ body{
 .sidebar .logo_content .logo{
   color: #fff;
   display: flex;
-  /* height: 50px; */
-  /* width: 100%; */
   align-items: center;
   opacity: 0;
   pointer-events: none;
@@ -472,6 +470,7 @@ color: gray;
     background-color: white;
     box-shadow: 1px 4px 15px 0px grey;
     border-radius: 4px;
+    margin-left: -43px;
 }
 .modal-content1{
     width: 535px;
@@ -508,7 +507,7 @@ color: gray;
       text-align: center;
   }
   .modal-content .popupbtn, .modal-content1 .popupbtn{
-    margin-top: 70px;
+    margin-top: 47px;
     text-align: center;
 }
 
@@ -538,166 +537,7 @@ color: gray;
     border-radius: 5px;
     cursor: pointer;
 }
-/* .modal-content .closed, .modal-content1 .closed{
-    float: right;
-    margin-top: -73px;
-    font-size: 48px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-} */
 
-  
-  
-
-
- /* @media screen and (max-width: 991px){
-  .sidebar{
-    width: 110px;
-  }
-  .sidebar #btn{
-    left: 60%;
-    font-size: 50px;
-  }
-  .sidebar ul{
-    margin-top: 122px;
-  }
-  .sidebar ul li{
-    font-size: 26px;
-    height: 94px;
-  }
-  .sidebar ul li i{
-    font-size: 40px;
-    margin-left: 26px;
-  }
-  .sidebar .links_name{
-    font-size: 19px;
-  }
-  .sidebar ul li .tooltip{
-    height: 62px;
-    width: 134px; 
- }
- .sidebar.active .profile_content .profile img {
-  width: 120%;
-  height: 120%;
-}
-.searchbar{
-  width: 284px;
-  margin-left: 55px;
-}
-.searchbar .input_search{
-  width: 227px;
- }
- .filedropdown{
-   margin-right: -373px;
- } 
- .tiles{
-   margin: 34px 62px;
- }
- .file-input{
-   margin: -70px -362px;
- }
- .cont{
-   margin-left: 39px;
-   width: 290%;
- }
- .sidebar.active ~ .main-content {
-  margin-left: 190px;
-}
-#setting {
-  padding-left: 74px;
-  height: 235vh;
-  width: 250vw;
- }
- .cont1 {
-  padding-left: 53px;
-}
-.content{
-  width: 419px;
-}
-.bg-modal1 {
-    width: 235%;
-    height: 258%;
-}
-.bg-modal {
-    width: 235%;
-    height: 258%;
-}
-} */
-
-/* @media screen and (max-width: 991px){
-  .sidebar{
-    width: 110px;
-  }
-  .sidebar #btn{
-    left: 60%;
-    font-size: 50px;
-  }
-  .sidebar ul{
-    margin-top: 122px;
-  }
-  .sidebar ul li{
-    font-size: 26px;
-    height: 94px;
-  }
-  .sidebar ul li i{
-    font-size: 40px;
-    margin-left: 26px;
-  }
-  .sidebar .links_name{
-    font-size: 19px;
-  }
-  .sidebar ul li .tooltip{
-    height: 62px;
-    width: 134px; 
- }
- .sidebar.active .profile_content .profile img {
-  width: 120%;
-  height: 120%;
-}
-.searchbar{
-  width: 284px;
-  margin-left: 55px;
-}
-.searchbar .input_search{
-  width: 227px;
- }
- .filedropdown{
-   margin-right: -373px;
- } 
- .tiles{
-   margin: 34px 62px;
- }
- .file-input{
-   margin: -70px -362px;
- }
- .cont{
-   margin-left: 39px;
-   width: 290%;
- }
- .sidebar.active ~ .main-content {
-  margin-left: 190px;
-}
-#setting {
-  padding-left: 74px;
-  height: 235vh;
-  width: 250vw;
- }
- .cont1 {
-  padding-left: 53px;
-}
-.content{
-  width: 419px;
-}
-.bg-modal1 {
-    width: 235%;
-    height: 258%;
-}
-.bg-modal {
-    width: 235%;
-    height: 258%;
-}
-} */
 @media(max-width:991px){
   body{
     /* overflow: visible; */
@@ -737,14 +577,14 @@ color: gray;
 }
 .bg-modal1 {
   width: 178%;
-    height: 205%;
+  height: 205%;
 }
 .bg-modal {
   width: 178%;
-    height: 235%;
+  height: 235%;
 }
 .modal-content {
-  width: 516px;
+  width: 475px;
 }
 }
 @media(min-width:992px) and (max-width:1024px){

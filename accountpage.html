@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
@@ -24,7 +24,7 @@
     <ul class="nav_list">
      
       <li>
-        <a href="#">
+        <a href="tilepage.html">
           <i class='bx bx-home' ></i>
           <span class="links_name">My Files</span>
         </a>
@@ -61,7 +61,7 @@
      
      
       <li>
-        <a href="#">
+        <a href="accountpage.html">
           <i class='bx bx-cog' ></i>
           <span class="links_name">Settings</span>
         </a>
@@ -195,10 +195,10 @@
     <div class="modal-content">
         <h1>Delete account</h1>
         <!-- <button class="closed" id="popupbtn" onclick="closepopup()">&times;</button> -->
-        <hr>
-        <h5>Enter your password to delete the account permanently</h5>
+        <hr style="margin-top: 13px;">
+        <h5>Enter your password to delete the account</h5>
             <!-- <button class="closed" id="popupbtn" onclick="closepopup()">&times;</button> -->
-        <form action="/delete?_method=DELETE" method="POST" id="delete_account">
+        <form method="DELETE" id="delete_account">
             <input type="password" id="delpass" placeholder="Enter your password">
        
         <div class="popupbtn">
@@ -219,7 +219,7 @@
         <hr>
         <h5>Are you sure you want to logout?</h5>
             <!-- <button class="closed" id="popupbtn" onclick="closepopup()">&times;</button> -->
-       <form action="/logout?_method=DELETE" method="POST" id="logout_account">
+       <form method="DELETE" id="logout_account">
             <div class="popupbtn">
             <button type="submit" class="popup-del" id="log_acc">Logout</button>
             <button class="popup-cancel" id="popupbtn1" onclick="closepopup1()">Cancel</button>
@@ -247,7 +247,30 @@ src="https://code.jquery.com/jquery-3.6.0.js"></script>
 $(document).ready(function(){
   $('.filebtns').click(function(){
       $('ul').toggleClass('active');
-  })
+  });
+
+    var requestOptions = {
+        method: 'POST',
+        redirect: 'follow',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        credentials: "include"
+    }
+
+    fetch("http://gccstorage.herokuapp.com/profile/view", requestOptions)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            console.log(data.status)
+            if (data.status == "ok") {
+                console.log(data)
+                console.log(document.getElementById("Fname"))
+                document.getElementById("Fname").value = data.data.name;
+                document.getElementById("profemail").value = data.data.email;
+            }
+        })
+        .catch(error => console.log('error', error));
 })
 
 
@@ -321,19 +344,18 @@ var profile_update = document.getElementById("profile_update");
 profile_update.addEventListener("submit",function(e){
 			e.preventDefault();
 			var Fname = document.getElementById("Fname").value;
-			var Lname = document.getElementById("Lname").value;
       var profemail = document.getElementById("profemail").value;
 			var data = {
 							"name": Fname,
-							"name": Lname,
               "email": profemail
 						};
-			fetch('https://gccstorage.herokuapp.com/profile/update?_method=PUT', {
-			  method: 'POST',
+			fetch('https://gccstorage.herokuapp.com/profile/update', {
+			  method: 'PUT',
 			  headers: {
 				'Content-Type': 'application/json',
 			  },
 			  body: JSON.stringify(data),
+        credentials: "include"
 			})
 			.then(response => response.json())
 			.then(data => {
@@ -359,18 +381,22 @@ var changepass = document.getElementById("changepass");
 							"new_password": newpass,
               "cnew_password": retypepass
 						};
-			fetch('https://gccstorage.herokuapp.com/edit?_method=PUT', {
-			  method: 'POST',
+			fetch('https://gccstorage.herokuapp.com/edit', {
+			  method: 'PUT',
 			  headers: {
 				'Content-Type': 'application/json',
 			  },
 			  body: JSON.stringify(data),
+        credentials: "include"
 			})
 			.then(response => response.json())
 			.then(data => {
 			//   document.getElementById("warningmsg").innerHTML = data.message;
 			//   $("#warningmsg").show();
-			  console.log('Success:', data);	
+			  console.log('Success:', data);
+        if (data.success == "ok") {
+          window.location.href = "/index.html";
+        }	
 			})
 			.catch((error) => {
 			  console.error('Error:', error);
@@ -378,19 +404,20 @@ var changepass = document.getElementById("changepass");
 		});
 
 // Delete profile
-var delete_account = document.getElementById("delete_account");
+var delete_account = document.getElementById("delete_account");  
 delete_account.addEventListener("submit",function(e){
 			e.preventDefault();
       var delpass = document.getElementById("delpass").value;
 			var data = {
               "password": delpass
 						};
-			fetch('https://gccstorage.herokuapp.com/delete?_method=DELETE', {
-			  method: 'POST',
+			fetch('https://gccstorage.herokuapp.com/delete', {
+			  method: 'DELETE',
 			  headers: {
 				'Content-Type': 'application/json',
 			  },
 			  body: JSON.stringify(data),
+        credentials: "include"
 			})
 			.then(response => response.json())
 			.then(data => {
@@ -399,7 +426,7 @@ delete_account.addEventListener("submit",function(e){
 			  console.log('Success:', data);
         if(data.status == "ok"){
           console.log(data.message);
-          window.location.href = "demo form.html";
+          window.location.href = "/index.html";
         }	
         else {
           console.log(data.message);
@@ -423,7 +450,7 @@ logout_account.addEventListener("submit",function(e){
 			  headers: {
 				'Content-Type': 'application/json',
 			  },
-        
+        credentials: "include",
         body: JSON.stringify({}),
 			})
 			.then(response => response.json())
@@ -433,7 +460,7 @@ logout_account.addEventListener("submit",function(e){
 			  console.log('Success:', data);	
         if(status == "ok"){
           // console.log(message);
-          window.location.href="demo form.html";
+          window.location.href="/index.html";
         }
       // else  if(data.status == "error"){
       //     console.log(data.message);
@@ -443,11 +470,6 @@ logout_account.addEventListener("submit",function(e){
 			  console.error('Error:', error);
 			});
 });
-		
-    
-    
-  
-
 
 </script>
 </html>
