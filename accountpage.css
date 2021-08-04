@@ -144,8 +144,6 @@ body{
 .sidebar .profile_content .profile{
   color: #fff;
   display: flex;
-  /* height: 50px; */
-  /* width: 100%; */
   align-items: center;
   opacity: 0;
   pointer-events: none;

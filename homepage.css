@@ -15,6 +15,7 @@ body{
     transform: 0.5s;
 }
 .nav-list {
+    
     text-decoration: none;
     list-style: none;
     display: flex;
