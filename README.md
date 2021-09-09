@@ -45,7 +45,7 @@
               <sub><b>Ritika Saxena</b></sub>
             </a><br/>
             <a href="https://github.com/Ritika091">   
-                � 👀 � �
+               💻
             </a>
           </td>
     <td align="center">
@@ -54,7 +54,7 @@
               <sub><b>Swarga Raj Dutta</b></sub>
             </a><br/>
             <a href="https://github.com/Swarga-codes">
-                📖
+                  💻
             </a>
           </td>
      <td align="center">
@@ -63,7 +63,7 @@
               <sub><b>Eshan Singh</b></sub>
             </a><br/>
             <a href="https://github.com/Kevin-Aaaquil">
-                📖
+                 💻
             </a>
           </td>
   </tr>
