@@ -1,6 +1,6 @@
 # Storage-Website
 
-<h1>About the Project🔵</h1>
+<h1>About the Project💙</h1>
 
 <p>Drive is a storage website where users can store important documents for free and can access them easily whenever needed.</p>
 
