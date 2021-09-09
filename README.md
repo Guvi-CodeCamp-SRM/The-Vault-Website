@@ -26,6 +26,7 @@
 <li>Search Bar</li>
 <li>QR Code Scanner</li>
 <li>Trash (where user can store their temporarily deleted files)</li>
+<li>Update Profile<li>
 
 <h1>Contributors❤</h1>
 <table>
