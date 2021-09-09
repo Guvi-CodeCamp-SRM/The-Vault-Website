@@ -28,3 +28,34 @@
 <li>Trash (where user can store their temporarily deleted files)</li>
 
 <h1>Contributors</h1>
+<table>
+  <tr>
+    <td align="center">
+            <a href="https://github.com/Ritika091">
+              <img src="https://avatars.githubusercontent.com/u/74368711?v=4" width="100px" alt=""/><br />
+              <sub><b>Prakhar Nagpal</b></sub>
+            </a><br/>
+            <a href="https://github.com/Ritika091">   
+                👑 👀 💬 💻
+            </a>
+          </td>
+    <td align="center">
+            <a href="https://github.com/simran-2501">
+              <img src="https://avatars.githubusercontent.com/u/73099635?v=4" width="100px" alt=""/><br />
+              <sub><b>Goutam Bhargava</b></sub>
+            </a><br/>
+            <a href="https://github.com/simran-2501">
+                💻
+            </a>
+          </td>
+    <td align="center">
+            <a href="https://github.com/Swarga-codes">
+              <img src="https://avatars.githubusercontent.com/u/72154312?s=400&v=4" width="100px" alt=""/><br />
+              <sub><b>Saurav Kumar</b></sub>
+            </a><br/>
+            <a href="https://github.com/Swarga-codes">
+                📖
+            </a>
+          </td>
+  </tr>
+</table>
