@@ -45,7 +45,7 @@
               <sub><b>Ritika Saxena</b></sub>
             </a><br/>
             <a href="https://github.com/Ritika091">   
-                👑 👀 💬 💻
+                � 👀 � �
             </a>
           </td>
     <td align="center">
