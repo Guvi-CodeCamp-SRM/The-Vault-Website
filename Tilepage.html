@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="Tilepage.css">
+    <title>Files</title>
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src= "https://kit.fontawesome.com/ece23478c9.js"></script>
+     <link rel="icon" href="images/Vector.png" type="image/svg+xml">
+     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">  
+   </head>
+<body>
+                                               <!--SIDENAV BAR-->
+  <div class="sidebar">
+    <div class="logo_content">
+      <div class="logo">
+        <img src ="images/logo__1_-removebg-preview.png" class="drive logo" alt="">
+      </div>
+      <i class='bx bx-menu' id="btn" ></i>
+    </div>
+    <ul class="nav_list" style="margin-left: -40px;">
+     
+      <li>
+        <a  href="Tilepage.html">
+          <i class='bx bx-home' ></i>
+          <span class="links_name">My Files</span>
+        </a>
+        <span class="tooltip">My Files</span>
+      </li>
+      <!-- <li>
+        <a href="#">
+          <i class='bx bx-lock-alt' ></i>
+          <span class="links_name">Encrypted</span>
+        </a>
+        <span class="tooltip">Encrypted</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-history' ></i>
+          <span class="links_name">Recent</span>
+        </a>
+        <span class="tooltip">Recent</span>
+      </li> -->
+      <!-- <li>
+        <a href="#">
+          <i class='bx bx-share' ></i>
+          <span class="links_name">Shared with me</span>
+        </a>
+        <span class="tooltip">Shared with me</span>
+      </li> -->
+ 
+      <li>
+        <a href="#">
+          <i class='bx bx-heart' id='show_favorite'></i>
+          <span class="links_name">Favourites</span>
+        </a>
+        <span class="tooltip">Favourites</span>
+      </li>
+      
+     
+      <li>
+        <a href="Accountpage.html">
+          <i class='bx bx-cog' ></i>
+          <span class="links_name">Settings</span>
+        </a>
+        <span class="tooltip">Settings</span>
+      </li>
+    </ul>
+    <div class="profile_content">
+        <div class="profile">
+            <centre>
+                <img src="images/Illustration 1.png" class="upgrade image" alt="" width="100" height="100">
+            </centre>
+          </div>
+        </div>
+        </div>
+                                                    <!--TOP SEARCH BAR AND RIGHT BUTTONS-->
+<div class="main-content" >
+    <div class="row">
+    <!-- <div class="searchbar"> 
+        <div class="searchbtn">
+            <i class="fas fa-search"></i>
+        </div>
+        <input type="text" class="input_search" placeholder="Search">
+    </div> -->
+    <div class="filedropdown">
+        <div class="filebtn">
+        <button id="filebtn" class="filebtns" style="margin-left: 46px;" ><img src="images/user.png" alt="" class="fileimg">Profile</button>
+    </div>
+        <ul class="active" id="filemenu">
+             <li id="account"  class="trn-bg divider"><a href="Accountpage.html"><i class="fas fa-user-cog"></i><span class="setting">Account Settings</span></a></li>
+             <li id="account" class="trn-bg divider"><i class="fas fa-sign-out-alt"></i><span class="setting" id="logout">  Logout</span></li>
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+        <h2 class="tiles">My Drive</h2>
+    
+     <form action="/files/upload" method="POST" id="filesupload" enctype="multipart/form-data">   
+    <div class="file-input">
+        <input type="file" id="add-file" class="add-file">
+        <label for="add-file" id="addfilebtn" >Add New Files</label>
+      </div>
+    </form>
+</div>
+<hr class="cont">
+<div id="preview" class="container"></div>
+                                                     <!--LOGOUT POPUP-->
+<div class="bg-modal1">
+  <div class="modal-content1">
+      <h1>Logout</h1>
+      <hr style="margin-top: 13px;">
+      <h5>Are you sure you want to logout?</h5>
+          <form method="DELETE" id="logout_account">
+            <div class="popupbtn">
+            <button type="submit" class="popup-del" id="log_acc">Logout</button>
+            <button class="popup-cancel" id="popupbtn1" onclick="closepopup1()">Cancel</button>
+          </div>
+        </form>
+  </div>
+</div>                                                   <!--POPUP ENDS-->
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+                                                      
+$(document).off('click', '.photos').on('click', '.photos', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    window.open($(this).attr('src'), '_blank');
+});
+
+$(document).off('click', '.pdfs').on('click', '.pdfs', function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    // $('#pdf_anchor').remove();
+});
+
+const generateFilePreview = function(file) {
+
+}
+
+const renderFiles = function(file) {
+  fetch('https://gccstorage.herokuapp.com/files/view/file', {
+    method: 'POST',
+    credentials: "include",
+    headers: {
+      'Content-Type': "application/x-www-form-urlencoded"
+    },
+    body: new URLSearchParams({
+      filename: file.filename
+  }) 
+  })
+  .then(response => response.arrayBuffer())
+  .then(data => {
+    var bytes = new Uint8Array(data);
+    var blob = new Blob([bytes.buffer]);
+    var url =  URL.createObjectURL(blob);
+
+    let fav_class = 'far fa-heart';
+    if (file.fav) {
+        fav_class = 'fa fa-heart';
+    }
+
+    let html = "<div style='background: white; height: 180px; width: 280px; margin-bottom: 50px' class='floatingDiv " + (file.fav ? "favorite_file" : "") + "'>";
+    if (file.contentType == 'application/pdf') {
+      html += 
+      "<div class='tooltip'>" +
+      "<img class='pdfs' src='" + 
+      "https://play-lh.googleusercontent.com/nufRXPpDI9XP8mPdAvOoJULuBIH_OK4YbZZVu8i_-eDPulZpgb-Xp-EmI8Z53AlXHpqX" +
+      "' style='width: 250px; border: 1px solid black; padding: 10px; margin: 10px; height: 177px;' data-pdf-url=" +
+      url + "' data-file='" + file.filename +
+      "'> <span class='tooltiptext'> " + file.filename + " </span> </div> <i style='float: right; margin-right: 20px' class='" + fav_class + ` favorite data-file=' ${file.filename}'></i> <i style='float: right; margin-right: 10px' class='fas fa-trash-alt delete-file' data-file=' ` + file.filename + "'></i>";
+    } else {
+      html += 
+      "<div class='tooltip'>" +
+      "<img class='photos' src='" + 
+      url +
+      "' style='width: 250px; border: 1px solid black; padding: 10px; margin: 10px; height: 177px; text-align: center'>" + 
+      "<span class='tooltiptext'> " + file.filename + " </span> </div> <i style='float: right; margin-right: 20px' class='" + fav_class + " favorite' data-file='" + file.filename + "'>" + 
+      "</i> <i style='float: right; margin-right: 10px' class='fas fa-trash-alt delete-file' data-file='" + file.filename + "'></i>";
+    }
+    html += "</div";
+    $('#preview').append(html);
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
+}
+
+$(document).off('click', '.delete-file').on('click', '.delete-file', function() {
+
+  let conf = confirm("Are you sure you want to delete?");
+  if (!conf) {
+    return;
+  }
+
+  let filename = $(this).data('file');
+  fetch('https://gccstorage.herokuapp.com/files/delete/file', {
+    method: 'DELETE',
+    credentials: "include",
+    headers: {
+      'Content-Type': "application/x-www-form-urlencoded"
+    },
+    body: new URLSearchParams({
+      filename: filename
+  }) 
+  })
+  .then(response => response.json())
+  .then(data => {
+      if (data.success == true) {
+        alert("file deleted successfully");
+        window.location.reload();
+      } else {
+        alert("unable to delete file");
+      }
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  })
+})
+
+$(document).on('click', '.favorite', function() {
+  let is_favorite = $(this).hasClass('far fa-heart');
+  let filename = $(this).data('file');
+  let that = $(this);
+
+  var urlencoded = new URLSearchParams();
+  urlencoded.append("action", "set");
+  urlencoded.append("filename", filename);
+
+  var requestOptions = {
+    method: 'POST',
+    body: urlencoded,
+    redirect: 'follow',
+    credentials: "include"
+  };
+
+  fetch("https://gccstorage.herokuapp.com/profile/fav", requestOptions)
+    .then(response => response.json())
+    .then(result => {
+      if (result.success == true) {
+        if (is_favorite) {
+          $(that).closest('span').addClass('favorite_file');
+
+          alert("favorite added");
+          that.removeClass('far fa-heart favorite');
+          that.addClass('fa fa-heart favorite');
+        } else {
+          $(that).closest('span').removeClass('favorite_file');
+          alert("favorite removed");
+          that.removeClass('fa fa-heart favorite');
+          that.addClass('far fa-heart favorite');
+        }
+      }
+      }
+      )
+    .catch(error => console.log('error', error));
+})
+
+$(document).on('click', '#show_favorite', function() {
+    $('#preview').children().each(function(i, v) {
+        if(!$(this).hasClass('favorite_file')) {
+          $(this).hide();
+        }
+    })
+})
+
+// DROPDOWN
+$(document).ready(function(){
+  $('.filebtns').click(function(){
+      $('ul').toggleClass('active');
+  });
+
+  fetch('https://gccstorage.herokuapp.com/files/viewall', {
+    method: 'POST',
+    credentials: "include",
+  })
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(function(item) {
+      renderFiles(item);
+      console.log(item);
+    })
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  })
+    
+})
+                                                          //  SIDE BAR OPEN AND CLOSE 
+   let btn = document.querySelector("#btn");
+   let sidebar = document.querySelector(".sidebar");
+   btn.onclick = function() {
+     sidebar.classList.toggle("active");
+     if(btn.classList.contains("bx-menu")){
+       btn.classList.replace("bx-menu" , "bx-menu-alt-right");
+     }else{
+       btn.classList.replace("bx-menu-alt-right", "bx-menu");
+     }
+   }
+  </script>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+                                                        //  LOGOUT BUTTON POPUP JS
+
+var logout= document.getElementById('logout');
+var close= document.getElementById('popupbtn1');
+function openpopup1(){
+    document.querySelector('.bg-modal1').style.display="flex";
+    document.querySelector("body").style.overflow="hidden";
+    };
+    logout.onclick=openpopup1;
+
+    function closepopup1(){
+    document.querySelector('.bg-modal1').style.display="none";
+    document.querySelector("body").style.overflow="visible";
+    };
+    close.onclick=closepopup1;
+  
+                                                        // LOGOUT FETCH 
+                                                        
+var logout_account = document.getElementById("logout_account");
+logout_account.addEventListener("submit",function(e){
+			e.preventDefault(); 
+      var log_acc = document.getElementById("log_acc").value;			
+			fetch('https://gccstorage.herokuapp.com/logout', {
+			  method: 'DELETE',
+			  headers: {
+				'Content-Type': 'application/json',
+			  },
+        credentials: "include",
+        body: JSON.stringify({}),
+			})
+			.then(response => response.json())
+			.then(data => {
+			  console.log('Success:', data);	
+        if(data.status == "ok"){
+          window.location.href="/index.html";
+        }
+			})
+			.catch((error) => {
+			  console.error('Error:', error);
+			});
+});
+                                                        // UPLOAD FILES JS
+                                                        
+     function getImagePreview(event){
+      let file = event.target.files[0];
+      var image=URL.createObjectURL(file);
+
+      let formData = new FormData();
+      formData.append("file", file, file.name);
+
+      fetch('https://gccstorage.herokuapp.com/files/upload', {
+			  method: 'POST',
+			  body: formData,
+        credentials: "include"      
+			})
+			.then(response => response.json())
+			.then(data => {
+        if (data.status == 'ok') {
+            alert("Uploaded successfully");
+            window.location.reload();
+        } else {
+          alert("Upload unsuccessfull");
+        }
+			})
+			.catch((error) => {
+			  console.error('Error:', error);
+			});
+  }
+  document.getElementById("add-file").addEventListener("change", getImagePreview);
+      
+</script>
+</html>

@@ -1,0 +1,210 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+ 
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+  <link rel="icon" href="images/Vector.png" type="image/svg+xml">
+  <link rel="stylesheet" href="Loginform.css">
+</head>
+
+<body>
+  <div class="container" id="container">
+    <div class="form-container sign-up-container">
+        <form action="/register" method="POST" id="reg">
+            <div id="warningmsg" class="alert alert-primary" role="alert" style="background-color: white; border-color: white;"></div>
+        <h1 class="form-header" >Create Account</h1>
+        <input type="text" placeholder="Name" id="name"/>
+        <input type="email" placeholder="Email" id="email"/>
+        <input type="password" id="password" placeholder="Password"/>
+        <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password" ></span>
+        <input type="password" id="confpass" placeholder="Confirm Password" />
+        <span toggle="#password-field" class="fa fa-fw fa-eye field-icon2 toggle-password2"></span>
+
+        <div class="button">
+          <button id="btn">Sign Up</button>
+          <button type="reset" id="btn1">Reset</button>
+        </div>
+      </form>
+    </div>
+    <div class="form-container sign-in-container">
+        <form action="/login" method="POST" id="login">
+            <div id="warningmsg_login" class="alert alert-primary" role="alert" style="background-color: white; border-color: white;"></div>
+            <h1 class="login">Sign in</h1>
+        <input type="email" placeholder="Email" id="login_email" />
+      <input type="password" id="password1" placeholder="Password" />
+        <span toggle="#password-field" class="fa fa-fw fa-eye field-icon1 toggle-password1"></span>
+        <button id="btn" class="btn2">Sign In</button>
+      </form>
+    </div>
+    <div class="overlay-container">
+      <div class="overlay">
+        <div class="overlay-panel overlay-left">
+          <h1>Welcome Back!</h1>
+          <p>To keep connected with us please login with your personal info</p>
+          <button class="ghost" id="signIn">Sign In</button>
+        </div>
+        <div class="overlay-panel overlay-right">
+          <h1>Hello, Friend!</h1>
+          <p>Enter your details and start journey with us</p>
+          <button class="ghost" id="signUp">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+ 
+  
+<script>
+    const signUpButton = document.getElementById('signUp');
+    const signInButton = document.getElementById('signIn');
+    const container = document.getElementById('container');
+
+    signUpButton.addEventListener('click', () => {
+      if (window.innerWidth > 750) {
+        container.classList.add('right-panel-active');
+      } else {
+        container.classList.add('right-panel-mobile-active');
+      }
+    })
+
+    signInButton.addEventListener('click', () => {
+      if (window.innerWidth > 750) {
+        container.classList.remove('right-panel-active');
+      } else {
+        container.classList.remove('right-panel-mobile-active');
+      }
+    })
+
+
+    $(".toggle-password").click(function () {
+
+      $(this).toggleClass("fa-eye fa-eye-slash");
+      if ($("#password").attr("type") == "password") {
+        $("#password").attr("type", "text");
+      } else {
+        $("#password").attr("type", "password");
+      }
+    });
+
+    $(".toggle-password1").click(function () {
+
+      $(this).toggleClass("fa-eye fa-eye-slash");
+      if ($("#password1").attr("type") == "password") {
+        $("#password1").attr("type", "text");
+      } else {
+        $("#password1").attr("type", "password");
+      }
+    });
+
+    $(".toggle-password2").click(function () {
+
+      $(this).toggleClass("fa-eye fa-eye-slash");
+      if ($("#confpass").attr("type") == "password") {
+        $("#confpass").attr("type", "text");
+      } else {
+        $("#confpass").attr("type", "password");
+      }
+    });
+
+
+
+ // REGISTER FETCH
+
+ var frm = document.getElementById("reg");
+     frm.addEventListener("submit",function(e){
+     e.preventDefault();
+     var name = document.getElementById("name").value;
+     var email = document.getElementById("email").value;
+     var password = document.getElementById("password").value;
+     var cpassword = document.getElementById("confpass").value;
+     var data = {
+                    "name": name,
+                    "email": email,
+                    "password": password,
+                    "cpassword": cpassword
+             };
+
+         fetch('https://gccstorage.herokuapp.com/register', {
+         method: 'POST',
+         headers: {
+         'Content-Type': 'application/json',
+          },
+         body: JSON.stringify(data),
+         credentials: "include"
+         })
+         .then(response => response.json())
+         .then(data => {
+           document.getElementById("warningmsg").innerHTML = data.message;
+           $("#warningmsg").show();
+           console.log('Success:', data);	
+           if(data.message === "user registration successfull")
+           {
+            window.location.href="index.html";
+          }	
+        })
+        .catch((error) => {
+        console.error('Error:', error);
+        });
+        });
+
+
+                                            //    LOGIN FETCH
+
+
+        document.getElementById("login").reset();
+        var myForm = document.getElementById("login");
+        myForm.addEventListener("submit",function(e){
+        e.preventDefault();
+        var login_email = document.getElementById("login_email").value;
+        var password1 = document.getElementById("password1").value;
+        var data = {
+                       "email": login_email,
+                       "password": password1
+                   };
+
+
+                fetch('https://gccstorage.herokuapp.com/login', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+                credentials: "include"
+                 })
+                 .then(response => response.json())
+                 .then(data => {
+                 if(data.status == "ok")
+                 {
+                   document.getElementById("warningmsg_login").innerHTML = data.message;
+                   $("#warningmsg_login").show();
+                   window.location.href="tilepage.html";
+                  }
+                })
+                .catch((error) => {
+                  console.error('Error:', error);
+                  if(data.status == "error"){
+                    document.getElementById("warningmsg_login").innerHTML = data.message;
+                    $("#warningmsg_login").show();
+                  }
+                  else{
+                    document.getElementById("warningmsg_login").innerHTML = "Incorrect/ Insufficient data";
+                    $("#warningmsg_login").show(); 
+                  }
+                });
+                });
+  </script>
+
+  <!-- bootstrap js cdn -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"></script> -->
+</body>
+
+</html>

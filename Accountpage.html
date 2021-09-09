@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">                                     
+
+    <link rel="stylesheet" href="Accountpage.css">
+    <title>Files</title>
+                                     <!-- Boxicons CDN Link -->
+<link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">  
+<link rel="icon" href="images/Vector.png" type="image/svg+xml">
+<script src= "https://kit.fontawesome.com/ece23478c9.js"></script>
+  </head>
+<body>
+                                      <!--LEFT SIDEBAR MENU-->
+    <div class="sidebar">
+      <div class="logo_content">
+        <div class="logo">
+          <img src ="images/logo__1_-removebg-preview.png" class="drive logo" alt="">
+        </div>
+        <i class='bx bx-menu' id="btn" ></i>
+      </div>
+      <ul class="nav_list">
+        <li>
+          <a href="Tilepage.html">
+            <i class='bx bx-home' ></i>
+            <span class="links_name">My Files</span>
+          </a>
+          <span class="tooltip">My Files</span>
+        </li>
+        <li>
+          <a href="#">
+            <i class='bx bx-heart' ></i>
+            <span class="links_name">Favourites</span>
+            </a>
+            <span class="tooltip">Favourites</span>
+          </li>
+        <li>
+         <a href="Accountpage.html">
+            <i class='bx bx-cog' ></i>
+            <span class="links_name">Settings</span>
+            </a>
+            <span class="tooltip">Settings</span>
+        </li>
+<!-- 
+        <li>
+            <a href="#">
+              <i class='bx bx-share' ></i>
+              <span class="links_name">Shared with me</span>
+            </a>
+            <span class="tooltip">Shared with me</span>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-history' ></i>
+              <span class="links_name">Recent</span>
+            </a>
+            <span class="tooltip">Recent</span>
+          </li>
+          <li>
+            <a href="#">
+              <i class='bx bx-lock-alt' ></i>
+              <span class="links_name">Encrypted</span>
+            </a>
+            <span class="tooltip">Encrypted</span>
+          </li> -->
+
+
+        <div class="profile_content">
+            <div class="profile">
+                <centre>
+                    <img src="images/Illustration 1.png" class="upgrade image" alt="" width="100" height="100">
+                </centre>
+              </div>
+            </div>
+            </div>
+    
+                            <!--TOP SEARCH, SETTINGS AND ADD FILES-->
+
+    <div class="main-content" >
+                <div class="row">
+                <!-- <div class="searchbar"> 
+                    <div class="searchbtn">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <input type="text" class="input_search" placeholder="Search">
+                </div> -->
+                <div class="filedropdown">
+                    <div class="filebtn">
+                    <button id="filebtn" class="filebtns" ><img src="images/user.png" alt="" class="fileimg">Profile</button>
+                </div>
+                    <ul class="active" id="filemenu">
+                         <li id="account"  class="trn-bg divider"><a href="Accountpage.html"><i class="fas fa-user-cog"></i><span class="setting">Account Settings</span></a></li>
+                        <li id="account" class="trn-bg divider"><i class="fas fa-sign-out-alt"></i><span class="setting" id="logout" onclick="openpopup1()">  Logout</span></li>
+                    </ul>
+                </div>
+
+                <div class="row">
+                    <h2 class="tiles">My Drive</h2>
+                    <!-- <form action="/files/upload" method="POST" id="filesupload">   
+                        <div class="file-input">
+                            <input type="file" id="add-file" class="add-file">
+                            <label for="add-file" id="addfilebtn" >Add New Files</label>
+                        </div>
+                    </form> -->
+                </div>
+                <h2 class="cont1">Account Settings</h2>
+                <hr class="cont">
+                <div id="setting">
+                    <!-- <div class="heading">
+                        <h2 style="color: #0c91cf;">Update Profile</h2>
+                      </div>
+                      <div class="content">
+                      <p>You can change your profile details below:-</p>
+                      <form id="profile_update" >
+                          <label for="FirstName">Name</label>
+                          <div>
+                              <input type="text" name="Fname" id="Fname" placeholder="Enter your first name">
+                          </div>
+                          <br>
+                          <label for="E-mail">E-mail Address</label>
+                          <div>
+                              <input type="email" name="e-mail" id="profemail" placeholder="Enter your Email ID">
+                          </div>
+                          <br>
+                          <button type="submit" class="btn1">Update</button>
+                          <input type="reset" class="btn3">
+                      </form>
+                      </div> -->
+                      <br>
+                      <div class="heading">
+                      <h2 style="color:#0a8c26;">Change Account Password</h2>
+                      </div>
+                      <div class="content">
+                      <p>Using the same password for a very long time? You can change it below:-</p>
+                      <form id="changepass">
+                          <label for="oldpass">Old Password</label>
+                          <div>
+                              <input type="password" name="oldpass" id="oldpass" placeholder="Enter your old password">
+                          </div>
+                          <br>
+                          <label for="newpass">New Password</label>
+                          <div>
+                              <input type="password" name="newpassword" id="newpass" placeholder="Enter your new password">
+                          </div>
+                          <br>
+                          <label for="repass">Re-Type your Password</label>
+                          <div>
+                              <input type="password" name="retype" id="retypepass" placeholder="Re-type your new password">
+                          </div>
+                          <br>
+                          <button type="submit" class="btn2">Save Changes</button>
+                          <!-- <button class="btn2" type="reset">Cancel</button> -->
+                          <input type="reset" class="btn3">
+                      
+                      </div>
+                      </form>
+                      <br>
+                      <div class="heading">
+                      <h2 style="color: #d9534f;">Delete Your Account</h2>
+                      </div>
+                      <div class="content">
+                      <p> Do you really wish to delete your account? Your account as well as your saved documents uploaded through
+                          your account will be deleted.</p>
+                      <p>You can continue by clicking the button below-</p>
+                      <br>
+                      <button class="btn4" id="delaccount" onclick="openpopup()">Delete Account</button>
+                      </div>
+                      </div>
+                        
+                                                               <!--LOGOUT POPUP-->
+<div class="bg-modal1">
+  <div class="modal-content1">
+      <h1>Logout</h1>
+      <hr>
+      <h5>Are you sure you want to logout?</h5>
+     <form method="DELETE" id="logout_account">
+          <div class="popupbtn">
+          <button type="submit" class="popup-del" id="log_acc">Logout</button>
+          <button class="popup-cancel" id="popupbtn1" onclick="closepopup1()">Cancel</button>
+        </div>
+      </form>
+  </div>
+</div>
+<!-- popup ends -->
+
+                                                              <!-- DELETE POPUP -->
+<div class="bg-modal">
+    <div class="modal-content">
+        <h1>Delete account</h1>
+        <hr style="margin-top: 13px;">
+        <h5>Enter your password to delete the account</h5>
+        <form method="DELETE" id="delete_account">
+            <input type="password" id="delpass" placeholder="Enter your password">
+            <div class="popupbtn">
+            <button type="submit" class="popup-del" id="delacc">Delete</button>
+            <button class="popup-cancel" id="popupbtn" onclick="closepopup()">Cancel</button>
+        </div>
+      </form>
+
+    </div>
+</div>
+<!-- popup ends -->
+
+                
+
+                      
+<script
+src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+// dropdown
+$(document).ready(function(){
+  $('.filebtns').click(function(){
+      $('ul').toggleClass('active');
+  });
+
+    var requestOptions = {
+        method: 'POST',
+        redirect: 'follow',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        credentials: "include"
+    }
+
+    fetch("http://gccstorage.herokuapp.com/profile/view", requestOptions)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            console.log(data.status)
+            if (data.status == "ok") {
+                console.log(data)
+                console.log(document.getElementById("Fname"))
+                document.getElementById("Fname").value = data.data.name;
+                document.getElementById("profemail").value = data.data.email;
+            }
+        })
+        .catch(error => console.log('error', error));
+})
+
+
+                                                 // SIDEBAR OPEN AND CLOSE
+   let btn = document.querySelector("#btn");
+   let sidebar = document.querySelector(".sidebar");
+  //  let searchBtn = document.querySelector(".bx-search");
+
+   btn.onclick = function() {
+     sidebar.classList.toggle("active");
+     if(btn.classList.contains("bx-menu")){
+       btn.classList.replace("bx-menu" , "bx-menu-alt-right");
+     }else{
+       btn.classList.replace("bx-menu-alt-right", "bx-menu");
+     }
+   }
+
+                                                                    // DELETE POPUP JS
+var delaccount= document.getElementById('delaccount');
+var close= document.getElementById('popupbtn');
+function openpopup(){
+    document.querySelector('.bg-modal').style.display="flex";
+    document.querySelector("body").style.overflow="hidden";
+    };
+    delaccount.onclick=openpopup;
+
+    function closepopup(){
+    document.querySelector('.bg-modal').style.display="none";
+    document.querySelector("body").style.overflow="visible";
+    };
+    close.onclick=closepopup;
+
+
+
+                                                                    // LOGOUT POPUP JS
+                                                                    
+var logout= document.getElementById('logout');
+var close= document.getElementById('popupbtn1');
+function openpopup1(){
+    document.querySelector('.bg-modal1').style.display="flex";
+    document.querySelector("body").style.overflow="hidden";
+    };
+    logout.onclick=openpopup1;
+
+    function closepopup1(){
+    document.querySelector('.bg-modal1').style.display="none";
+    document.querySelector("body").style.overflow="visible";
+    };
+    close.onclick=closepopup1;
+
+
+
+                                                                // LOGOUT FETCH JS
+                                                                
+var logout_account = document.getElementById("logout_account");
+logout_account.addEventListener("submit",function(e){
+			e.preventDefault();
+      var log_acc = document.getElementById("log_acc").value;			
+			fetch('https://gccstorage.herokuapp.com/logout', {
+			  method: 'DELETE',
+			  headers: {
+				'Content-Type': 'application/json',
+			  },
+        credentials: "include",
+        body: JSON.stringify({}),
+			})
+			.then(response => response.json())
+			.then(data => {
+			  console.log('Success:', data);	
+        if(data.status == "ok"){
+          window.location.href="/index.html";
+        }
+			})
+			.catch((error) => {
+			  console.error('Error:', error);
+			});
+});
+
+                                                                // UPDATE PROFILE JS(Name,email)
+var profile_update = document.getElementById("profile_update");
+profile_update.addEventListener("submit",function(e){
+			e.preventDefault();
+			var Fname = document.getElementById("Fname").value;
+      var profemail = document.getElementById("profemail").value;
+			var data = {
+							"name": Fname,
+              "email": profemail
+						};
+			fetch('https://gccstorage.herokuapp.com/profile/update', {
+			  method: 'PUT',
+			  headers: {
+				'Content-Type': 'application/json',
+			  },
+			  body: JSON.stringify(data),
+        credentials: "include"
+			})
+			.then(response => response.json())
+			.then(data => {
+			  console.log('Success:', data);	
+        window.alert("Profile updated successfully");
+			})
+			.catch((error) => {
+			  console.error('Error:', error);
+			});
+		})
+
+
+                                                                // EDIT PASSWORD JS
+var changepass = document.getElementById("changepass");
+		changepass.addEventListener("submit",function(e){
+			e.preventDefault();
+			var oldpass = document.getElementById("oldpass").value;
+			var newpass = document.getElementById("newpass").value;
+      var retypepass = document.getElementById("retypepass").value;
+			var data = {
+							"old_password": oldpass,
+							"new_password": newpass,
+              "cnew_password": retypepass
+						};
+			fetch('https://gccstorage.herokuapp.com/edit', {
+			  method: 'PUT',
+			  headers: {
+				'Content-Type': 'application/json',
+			  },
+			  body: JSON.stringify(data),
+        credentials: "include"
+			})
+			.then(response => response.json())
+			.then(data => {
+			  console.log('Success:', data);
+        window.alert("Password updated successfully");
+        if (data.status == "ok") {
+          window.location.href = "/index.html";
+        }	
+			})
+			.catch((error) => {
+			  console.error('Error:', error);
+        window.alert("Incorrect Password")
+			});
+		});
+
+    
+                                                              // DELETE PROFILE JS
+var delete_account = document.getElementById("delete_account");  
+delete_account.addEventListener("submit",function(e){
+			e.preventDefault();
+      var delpass = document.getElementById("delpass").value;
+			var data = {
+              "password": delpass
+						};
+			fetch('https://gccstorage.herokuapp.com/delete', {
+			  method: 'DELETE',
+			  headers: {
+				'Content-Type': 'application/json',
+			  },
+			  body: JSON.stringify(data),
+        credentials: "include"
+			})
+			.then(response => response.json())
+			.then(data => {
+			  console.log('Success:', data);
+        if(data.status == "ok"){
+          console.log(data.message);
+          window.location.href = "/index.html";
+        }	
+        else {
+          console.log(data.message);
+        }
+			})
+			.catch((error) => {
+			  console.error('Error:', error);
+       
+			});
+		});
+
+
+  </script>
+</body>
+</html>
+  
+                      
+
+        
