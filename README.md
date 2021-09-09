@@ -28,6 +28,7 @@
 <li>Trash (where user can store their temporarily deleted files)</li>
 <li>Update Profile</li>
 <li>Cross browser support</li>
+<li></li>
 
 <h1>Contributors❤</h1>
 <table>
