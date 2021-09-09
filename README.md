@@ -31,21 +31,21 @@
 <table>
   <tr>
     <td align="center">
-            <a href="https://github.com/Ritika091">
-              <img src="https://avatars.githubusercontent.com/u/74368711?v=4" width="100px" alt=""/><br />
-              <sub><b>Ritika Saxena</b></sub>
-            </a><br/>
-            <a href="https://github.com/Ritika091">   
-                👑 👀 💬 💻
-            </a>
-          </td>
-    <td align="center">
             <a href="https://github.com/simran-2501">
               <img src="https://avatars.githubusercontent.com/u/73099635?v=4" width="100px" alt=""/><br />
               <sub><b>Simran Srivastava</b></sub>
             </a><br/>
             <a href="https://github.com/simran-2501">
                 💻
+            </a>
+          </td>
+     <td align="center">
+            <a href="https://github.com/Ritika091">
+              <img src="https://avatars.githubusercontent.com/u/74368711?v=4" width="100px" alt=""/><br />
+              <sub><b>Ritika Saxena</b></sub>
+            </a><br/>
+            <a href="https://github.com/Ritika091">   
+                👑 👀 💬 💻
             </a>
           </td>
     <td align="center">
