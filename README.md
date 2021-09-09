@@ -57,5 +57,14 @@
                 📖
             </a>
           </td>
+     <td align="center">
+            <a href="https://github.com/Kevin-Aaaquil">
+              <img src="https://avatars.githubusercontent.com/u/73784677?v=4" width="100px" alt=""/><br />
+              <sub><b>Eshan Singh</b></sub>
+            </a><br/>
+            <a href="https://github.com/Kevin-Aaaquil">
+                📖
+            </a>
+          </td>
   </tr>
 </table>
