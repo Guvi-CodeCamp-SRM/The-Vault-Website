@@ -8,9 +8,9 @@
 
 <p>My drive is a website similar to google drive which gives you the storage of 516 gb .Here you can store files like images and pdf as in for now. Pdf preview is not available right now .You can STORE your  files here .This website is supported on mozilla browser and has further updates to come both in website as well as app.</p>
 
-<h1>wWebsite Link</h1>
+<h1>Website Link</h1>
 
-<p><a href="https://the-vault-gcc.netlify.app/"></p>
+<p><a href="https://the-vault-gcc.netlify.app/">https://the-vault-gcc.netlify.app/</p>
 
 <h1>Tech Stack Used in the Project💥</h1>
 
