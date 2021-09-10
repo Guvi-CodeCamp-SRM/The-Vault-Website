@@ -64,9 +64,9 @@ body{
 .sidebar.active #btn{
   left: 90%;
 }
-.sidebar ul{
+/* .sidebar ul{
   margin-top: 100px;
-}
+} */
 .sidebar ul li{
   position: relative;
   height: 50px;
@@ -598,4 +598,12 @@ height: 120vh;
 .searchbar {
   width: 186px;
 }
+}
+.logo img{
+  width: 300px;
+    margin-top: -70px;
+    margin-left: -50px;
+}
+.profile_content{
+  margin-top: -100px;
 }
