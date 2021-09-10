@@ -10,7 +10,7 @@
 
 <h1>Website Link</h1>
 
-<p><a href="https://the-vault-gcc.netlify.app/">https://the-vault-gcc.netlify.app/</p>
+<p><a href="https://the-vault-gcc.netlify.app/">The-Vault-GCC</p>
 
 <h1>Tech Stack Used in the Project💥</h1>
 
